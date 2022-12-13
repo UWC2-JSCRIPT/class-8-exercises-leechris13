@@ -1,14 +1,24 @@
 let myPromise = new Promise(function(resolve, reject) {
   setTimeout(function() {
-    resolve();
+    let a = Math.random()
+    console.log(a)
+    if (a > 0.5) {
+      // console.log('complete')
+      resolve();
+    } else{
+      reject()
+    } 
+    
   }, 1000);
 });
 
 myPromise
   .then(function() {
-    return 99;
+    console.log('success')
+    console.log('complete')
   })
-  .then(function(number) {
-    console.log(number);
+  .catch(function() {
+    console.log('fail')
+    console.log('complete');
   });
 
